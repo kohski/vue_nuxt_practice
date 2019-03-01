@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My first vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <style>
+    .hello{
+      border:2px solid magenta;
+      padding:5px 10px;
+      font-size:24pt;
+    }
+  </style>
+  <h1>Vue.js</h1>
+    <div id="app">
+      <div><hello /></div>
+      <div><hello /></div>
+      <div><hello /></div>
+    </div>  
+  <script>
+
+   var app = new Vue({
+      el: '#app',
+      components:{
+        hello:{
+          data:function(){
+            return {
+              counter: 0,
+            };
+          },
+          template: '<p v-on:click="counter++" class="hello">clicked:{{ counter }}</p>'
+        }
+      }
+    });
+   </script>
+</body>
+</html>
+

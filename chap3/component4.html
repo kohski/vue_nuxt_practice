@@ -18,18 +18,19 @@
 
   <h1>Vue.js</h1>
     <div id="app">
-      <div><hello name="Taro"></div>
-      <div><hello name="Hanako"></div>
+      <div><hello v-bind:name="name"></div>
+      <div><input type="text" v-model="name"></div>
     </div>  
   <script>
-    Vue.component('hello',{
-      props: ['name','lastName'],
-      template: '<p class="hello"> Hello, {{ name }} {{ lastName }}!</p>'
+    const hello = Vue.component('hello',{
+      props: ['name'],
+      template: '<p class="hello"> {{ name }}</p>'
     })
-
-
     const app = new Vue({
       el:"#app",
+      data:{
+        name:"no-name"
+      }
     })
   </script>
 </body>
