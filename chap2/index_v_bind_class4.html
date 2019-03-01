@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My first vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <h1>Vue.js</h1>
+  <div id="app">
+    <p v-bind:style="styles">
+      {{ message }}
+    </p>
+    <!-- v-bind:styleの省略形は:style。 -->
+  </div>
+  <hr>
+  <button onclick="doAction();">style change</button>
+  <script>
+    let data = {
+      message:'Hello Vue.js',
+      styles:{
+        margin:'10px',
+        padding:'5px 20px',
+        fontSize:'20pt',
+        color:'red',
+        backgroundColor:'#fee',
+        border:'3px solid blue'
+      }
+    }
+    const app = new Vue({
+      el:"#app",
+      data:data,
+    })
+  </script>
+</body>
+</html>

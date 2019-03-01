@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My first vue app</title>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <style>
+    .red{
+      font-size:20pt;
+      font-weight:bold;
+      font-style: normal;
+      color:red;
+    }
+
+    .blue{
+      font-size:24pt;
+      font-weight:plain;
+      font-style: italic;
+      color:blue;
+    }
+  </style>
+
+  <h1>Vue.js</h1>
+  <div id="app">
+    <p v-bind:class="{red:isRed,blue:isBlue}">
+      {{ message }}
+    </p>
+    <!-- v-bind:styleの省略形は:style。 -->
+  </div>
+  <hr>
+  <button onclick="doAction();">style change</button>
+  <script>
+    let data = {
+      message:'Hello Vue.js',
+      isRed:true,
+      isBlue:false,
+    }
+    const app = new Vue({
+      el:"#app",
+      data:data,
+    })
+
+    function doAction(event){
+      data.isRed = !data.isRed,
+      data.isBlue = !data.isBlue
+    }
+ 
+  </script>
+</body>
+</html>
