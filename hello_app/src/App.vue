@@ -1,40 +1,24 @@
 <template>
   <div id="app">
-    <HelloWorld v-bind:title="message" v-on:result-event="appAction"/>
-    <hr>
-    <p>{{ result }}</p>
+    <HelloWorld title="validate" />
   </div>
 </template>
 
+
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'app',
   components: {
     HelloWorld
   },
-  data:function(){
+  data: function(){
     return {
-      message: 'HELLO',
-      result: 'NO EVENT'
-    }
-  },
-  methods:{
-    appAction:function(message){
-      this.result = '(*** you send:"' + message + '". ***)';
-    }
+      message:'validate',
+      num: 90,
+    };
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
