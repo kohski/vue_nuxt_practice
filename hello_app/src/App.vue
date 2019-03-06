@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <HelloWorld title="validate" />
+    <HelloWorld title="JSX?">
+    </HelloWorld>
   </div>
 </template>
-
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
@@ -16,8 +16,11 @@ export default {
   },
   data: function(){
     return {
-      message:'validate',
-      num: 90,
+      slotobjs: [
+        {name:'Taro', mail:'taro@yamada'},
+        {name:'Hanako', mail:'hanako@flower'},
+        {name:'Sachiko', mail:'sachiko@happy'},
+      ],
     };
   }
 }

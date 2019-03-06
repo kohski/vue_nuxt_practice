@@ -1,40 +1,20 @@
-<template>
-  <div class="hello">
-    <h1>{{ title }}</h1>
-    <pre>{{ message }}</pre>
-    <hr>
-    <div class="area"
-      v-on:click.left.prevent="left"
-      v-on:click.middle.prevent="middle"
-      v-on:click.right.prevent="right">
-        click here!
-      </div>
-  </div>
-</template>
-
-
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    title: String, 
-  },
-  data: function(){
+  data: function() {
     return {
-      message: '',
+      title:'JSX',
+      message:'これは、dataに用意したメッセージです。',
     };
   },
-  methods: {
-    left: function(){
-      this.message = '[left button]';
-    },
-    right: function(){
-      this.message = '[right button]'
-    },
-    middle: function(){
-      this.message = '[middle button]';
-    },
-  },
+  render: function(h){
+    return (
+      <div>
+        <h1>{this.title}</h1>
+        <p>{this.message}</p>
+      </div>
+    );
+  }
 }
 </script>
 
@@ -64,5 +44,15 @@ div.in {
   background-color: #ccc;
   width:100px;
   height:150px;
+}
+.inner {
+  color:red;
+  font-size:14pt;
+}
+.etc {
+  color:green;
+  background-color: #eee;
+  font-size:12pt;
+  padding:5px;
 }
 </style>
