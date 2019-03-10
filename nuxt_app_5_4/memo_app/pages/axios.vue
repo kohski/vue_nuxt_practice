@@ -1,48 +1,45 @@
 <template>
-    <section class="container">
-        <h1>{{title}}</h1>
-        <p>{{message}}</p>
-        <input v-model="find">
-        <button @click="getData">Click</button>
-        <hr>
-        <ul>
-            <li>{{json_data}}</li>
-        </ul>
-    </section>
+  <section class="container">
+    <h1>{{title}}</h1>
+    <p>{{message}}</p>
+    </div>
+  </section>
 </template>
 
 
 <script>
-const axios = require('axios');
-
-
-let url = "https://kohski-vue.firebaseio.com/person/";//★
+import firebase from "firebase";
 
 
 export default {
-    data: function(){
-        return {
-            title:'Axios',
-            find:'',
-            message:'axios sample.',
-            json_data:{},
-        };
-    },
-    methods: {
-        getData: function() {
-            let id_url = url + this.find + '.json';
-            axios.get(id_url).then((res) => {
-                this.message = 'get ID=' + this.find;
-                this.json_data = res.data;
-            }).catch((error)=>{
-                this.message = 'ERROR!';
-                this.json_data = {};
-            });
-        }
-    }
-}
-</script>
+  data: function(){
+    return {
+      title:'Auth',
+      message: 'this is message.',
+    };
+  },
+  created:function(){
+    var config = {
+      apiKey: "",
+      authDomain: "",
+      databaseURL: "",
+      projectId: "",
+      storageBucket: "",
+      messagingSenderId: ""
+    };
+    firebase.initializeApp(config);
 
+
+    var provider = new firebase.auth.GoogleAuthProvider();
+    var self = this;
+    firebase.auth().signInWithPopup(provider)
+      .then(function(result) {
+        self.message = result.user.displayName + ', ' 
+          + result.user.email;
+      });
+  },
+};
+</script>
 
 <style>
 ul {
